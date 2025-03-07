@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPro</title>
+    <style>
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Container Styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Left Section (Navigation Bar) */
+        .left-section {
+            flex: 0.1;
+            padding-right: 20px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #272e6c;
+        }
+
+        /* Right Section (Content Area) */
+        .right-section {
+            flex: 0.9;
+            padding-left: 20px;
+
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1023px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .left-section {
+                width: 100%;
+                margin-bottom: 20px;
+                padding-right: 0;
+            }
+
+            .right-section {
+                width: 100%;
+                padding-left: 0;
+            }
+        }
+
+        /* Heading and Navigation Links */
+        h1 {
+            color: #272e6c;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        h2 {
+            color: #272e6c;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #272e6c;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .nav-links a:hover {
+            color: #2e367d;
+        }
+
+
+
+        /* Ingredients and Recipe Section */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2e367d;
+            font-size: 24px;
+        }
+
+
+
+        .text_p p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            background-color: #2e367d;
+            color: #fff;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            /* Aligns logo left, links right */
+            align-items: center;
+            /* Centers items vertically */
+            padding: 20px 50px;
+            /* Adds spacing */
+            border-bottom: 1px solid #ddd;
+            /* Adds a subtle line below */
+            margin-top: 5px;
+            margin-left: 2px;
+            margin-right: 2px;
+            background-color: #f2f2f2;
+            text-shadow: 2px 2px 5px #1e2675
+        }
+
+        /* Standard syntax */
+        @keyframes example {
+            from {
+                background-color: #f2f2f2;
+            }
+
+            to {
+                background-color: #7c89fd;
+            }
+        }
+
+        .logo {
+            font-size: 32px;
+            font-family: "Georgia", serif;
+            font-weight: bold;
+            color: #272e6c;
+        }
+
+        .header-nav-links {
+            display: flex;
+            gap: 30px;
+            /* Space between links */
+        }
+
+        .header-nav-links a {
+            text-decoration: none;
+            font-family: "Georgia", serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #272e6c;
+            text-transform: uppercase;
+            /* Makes text uppercase */
+        }
+
+        /* Add hover effect */
+        .header-nav-links a:hover {
+            color: #2e367d;
+        }
+
+        .video-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            /* Distribute space between items */
+            padding: 8px;
+
+        }
+
+        .video-container iframe {
+            width: 20%;
+            /* Ensures the video takes the full width of the container */
+            height: 200px;
+            /* Set a fixed height for the video */
+            border-radius: 8px;
+            /* Optional: rounded corners for the video */
+            margin-bottom: 20px;
+            /* Space between video and next section */
+            display: flex;
+            flex-direction: row;
+            box-shadow: 10px 10px 5px grey;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .header-nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-container iframe {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo"><a href="/home.html" target="_blank"
+                style="color: #272e6c; text-decoration: none; animation-name: example;animation-duration: 4s; animation-timing-function: linear; animation-delay: 2s; animation-iteration-count: infinite; animation-direction: alternate;">MathPro</a>
+        </div>
+
+        <nav class="header-nav-links">
+            <a href="home.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Left Section (Navigation Bar) -->
+        <div class="left-section">
+            <h2>Go To</h2>
+            <ul class="nav-links">
+                <li><a href="#fractions">Fractions</a></li>
+                <li><a href="#geometry">Geometry</a></li>
+                <li><a href="#volumes">Volumes of 3-D Shapes</a></li>
+                <li><a href="#units">Units Conversion</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Section (Content Area) -->
+        <div class="right-section">
+            <h1>Mathematics</h1>
+
+
+            <!-- Fractions Section -->
+            <div id="fractions" class="section">
+                <h2>Fractions</h2>
+                <div class="text_p">
+                    <p>Fractions are a fundamental concept in mathematics that represent a part of a whole. They consist
+                        of two numbers: the numerator, which indicates how many parts we have, and the denominator,
+                        which shows how many equal parts the whole is divided into. Understanding fractions is essential
+                        for various everyday tasks, such as cooking, sharing, and measuring. In these animated
+                        tutorials, we'll explore the basics of fractions to make it easier for you to grasp this
+                        important mathematical concept!.</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <!-- Added this iframe for video -->
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/242lY3tl4z8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/cmybZ3RhvQg" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/qZj-tzZHLeo" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/qNNEv2FkFc8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+
+
+            <!-- Geometry Section -->
+            <div id="geometry" class="section">
+                <h2>Geometry</h2>
+                <div class="text_p">
+                    <p>Geometry is a fascinating branch of mathematics that explores the properties and relationships of
+                        shapes and spaces. It forms the foundation for understanding dimensions, areas, and volumes,
+                        making it essential for various real-world applications. In this introduction to geometry, we
+                        will delve into several fundamental shapes, including circles, triangles, squares, and
+                        rectangles, each with its unique characteristics and formulas. By learning about these shapes,
+                        you'll gain the skills to identify, measure, and analyze them, setting the stage for more
+                        complex geometric concepts and applications. Join us as we uncover the beauty and utility of
+                        geometry in our everyday lives!
+                    </p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <!-- Added this iframe for video -->
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/iEPgtxv2kjI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/VssnhTjDkNE" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/Ml-Lxlo9RDU" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/CQEchgtJ30c" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+
+
+            <!-- Volumes Section -->
+            <div id="volumes" class="section">
+                <h2>Volumes of 3-D Shapes</h2>
+                <div class="text_p">
+                    <p>Understanding the volumes of three-dimensional shapes is a key aspect of geometry that helps us
+                        quantify space. In this introduction, we'll explore the volumes of four fundamental shapes: the
+                        cube, cylinder, sphere, and cone. The cube, with its equal sides, presents a straightforward
+                        volume calculation, while the cylinder combines the characteristics of circles and rectangles in
+                        its formula. The sphere, often associated with perfect symmetry, captures the essence of
+                        circular dimensions, and the cone, with its unique tapering structure, offers its own intriguing
+                        volume formula. By learning how to calculate and compare the volumes of these shapes, you'll
+                        enhance your spatial reasoning and discover the practical applications of geometry in fields
+                        such as architecture, engineering, and everyday life!</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <!-- Added this iframe for video -->
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/ECVuZ2ncFiI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/KSJOCwx9VIk" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/5cwjls3tIYA" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/PAP6qJ2Q1b4" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+
+
+            <!-- Units Conversion -->
+            <div id="units" class="section">
+                <h2>Units Conversion</h2>
+                <div class="text_p">
+                    <p>Understanding unit conversions is essential in today's global world, where different measurement
+                        systems can impact our daily lives, work, and communication. Whether you're cooking a recipe
+                        that uses different units, traveling to a country with a different measurement system, or
+                        engaging in scientific research, being able to accurately convert units ensures clarity and
+                        precision. Mastering these conversions not only enhances your mathematical skills but also helps
+                        you navigate various situations more effectively. By familiarizing yourself with unit
+                        conversions, you empower yourself to engage confidently with diverse contexts, making your
+                        understanding more versatile and applicable across various disciplines.</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <!-- Added this iframe for video -->
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/dCSayzGuxKg" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/6Wnd7N3Nbas" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/bJi39nthRBk" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="80%" height="auto" src="https://www.youtube.com/embed/3xQGCAugpSA" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>MathPro</p>
+    </div>
+
+</body>
+
+</html>
